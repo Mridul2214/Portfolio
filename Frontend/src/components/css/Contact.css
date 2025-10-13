@@ -1,0 +1,123 @@
+.contact-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+}
+
+.contact-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #fff, #00d4ff);
+  margin: 12px auto;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.contact-title:hover::after {
+  width: 150px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.contact-info {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: #00d4ff;
+  width: 20px;
+}
+
+/* Removed form-related styles as form is no longer present */
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info {
+    flex: none;
+    width: 100%;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 60px 15px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.3rem;
+  }
+}

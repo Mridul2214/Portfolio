@@ -1,0 +1,180 @@
+/* --- BASE --- */
+.navigation {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* --- HAMBURGER ICON --- */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+  padding: 0; /* remove padding for minimal look */
+  background: none; /* no background */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #007bff; /* line color */
+  border-radius: 3px;
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.hamburger:hover span {
+  background: #0ca2de;
+  /* box-shadow: 0 0 6px #00bfff; */
+}
+
+/* Open animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+/* --- DROPDOWN MENU --- */
+.nav-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 180px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu.open {
+  transform: scaleY(1);
+}
+
+.nav-menu li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.nav-menu li:last-child {
+  border-bottom: none;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 14px 22px;
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-menu li a:hover {
+  background: #007bff;
+  color: white;
+  padding-left: 28px;
+}
+
+/* --- MOBILE FIX --- */
+@media (max-width: 768px) {
+  /* Floating hamburger button */
+  .navigation {
+    top: 15px;
+    right: 15px;
+    width: auto;
+  }
+
+  .nav-container {
+    width: auto;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .hamburger {
+    width: 30px;
+    height: 20px;
+  }
+
+  .hamburger span {
+    height: 3px;
+  }
+  .nav-menu {
+    right: 0;
+    top: 110%;
+    width: 160px;
+  }
+
+  .nav-menu li a {
+    text-align: left;
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  /* Prevent side spacing */
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  section {
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #007bff 0%, #004aad 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+}
