@@ -6,7 +6,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 const Hero = () => {
   return (
     <section className="hero">
-      {/* Left Section */}
       <div className="hero-left">
         <div className="hero-image">
           <img
@@ -15,7 +14,6 @@ const Hero = () => {
           />
         </div>
 
-        {/* Social Icons */}
 <div className="hero-socials">
   <a
     href="mailto:mridul1422@gamil.com"
