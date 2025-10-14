@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./css/skillsection.css";
+import "./css/SkillSection.css";
 import { FaReact, FaNodeJs, FaPython, FaGitAlt, FaBrain } from "react-icons/fa";
 import {
   SiMongodb,
