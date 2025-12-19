@@ -6,7 +6,7 @@ const Experience = () => {
     {
       title: 'Web Developer Intern',
       company: 'Infotact',
-      period: '2025 - Present',
+      period: '2025 - 2025',
       description: 'Developed and maintained web applications using React and Node.js.'
     },
     {
@@ -17,10 +17,10 @@ const Experience = () => {
       file: "/MRIDUL M.pdf"
     },
     {
-      title: 'Cybersecurity Intern',
+      title: 'Full Stack ',
       company: 'NoviTech',
-      period: '2025 - present',
-      description: 'Assisted in security audits, penetration testing, and vulnerability assessments.'
+      period: '2025 - 2025',
+      description: 'Built responsive user interfaces and collaborated with design teams.'
     },
     {
       title: 'Full Stack Developer Intern',
