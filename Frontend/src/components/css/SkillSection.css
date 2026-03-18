@@ -1,128 +1,255 @@
-/* ===== SKILLS SECTION ===== */
+/* ===== SKILLS SECTION - STICKY NOTES WALL ===== */
 .skills-section {
   width: 100%;
-  padding: 60px 20px;
-  background: #fafafb;
+  padding: 20px 0 100px 0;
+  /* Reduced top padding greatly */
+  background: transparent;
   text-align: center;
-  color: #333;
+  color: #111;
   position: relative;
-  scroll-margin-top: 80px;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
-.skills-container {
-  max-width: 900px;
+.skills-container-wall {
+  width: 100%;
+  max-width: 900px; /* Reduced from 1300px to make laptop view tighter */
   margin: 0 auto;
 }
 
-/* Section Title */
-.skills-title {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  position: relative;
-  color: #0277bd;
-  font-weight: 700;
+.section-title {
+  font-family: 'Anton', sans-serif !important;
+  font-size: 4.5rem;
+  margin-bottom: 30px;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.skills-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #007bff, #00d4ff);
-  margin: 12px auto;
-  transition: width 0.3s ease;
+.wall-title {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  /* Above notes, below avatar maybe? No, avatar is left. */
+  margin-bottom: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.wall-background {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  /* Reduced height a bit to merge better */
+  /* Faded background to blend with white site background */
+  background: transparent;
+  margin-top: 0;
+  /* Removed margin to merge with title */
+  overflow: hidden;
+}
+
+/* Subtle dots pattern like a corkboard or planner */
+.wall-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#d0d7f2 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.sticky-notes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Sticky Note Base - Further Reduced size */
+.sticky-note {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
   border-radius: 2px;
 }
 
-.skills-title:hover::after {
-  width: 150px;
+.sticky-note:hover {
+  transform: scale(1.15) rotate(0deg) !important;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.12);
+  z-index: 10;
 }
 
-/* Skill Items Wrapper */
-.skill-items-wrapper {
-  width: 100%;
-  overflow: hidden; /* hide overflowing items */
+.note-content {
+  text-align: center;
+  pointer-events: none;
 }
 
-/* Skill Items - scrolling flex */
-.skill-items {
-  display: inline-flex;
-  gap: 20px;
-  flex-wrap: nowrap;
-  animation: scroll 18s linear infinite;
-}
-
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 80px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s forwards;
-  transition: all 0.3s ease;
-}
-
-.skill-item:hover .skill-icon {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.5));
-}
-
-.skill-icon {
-  font-size: 1.7rem;
-  color: #007bff;
+.note-icon {
+  font-size: 1.8rem;
   margin-bottom: 5px;
-  animation: float 3s ease-in-out infinite;
+  color: #111;
 }
 
-.skill-item p {
-  font-size: 0.9rem;
+.note-name {
+  font-size: 0.7rem;
+  font-weight: 800;
   margin: 0;
-  color: #333;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-  100% { opacity: 1; transform: translateY(0); }
+/* Color Variations - Soft & Aesthetic */
+.note-yellow {
+  background-color: #fffac2;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+.note-blue {
+  background-color: #d1ecff;
 }
 
-/* Smooth horizontal scroll */
-@keyframes scroll {
-  0% { transform: translate3d(0,0,0); }
-  100% { transform: translate3d(-50%,0,0); }
+.note-pink {
+  background-color: #ffd1ec;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .skills-container { max-width: 700px; }
+.note-green {
+  background-color: #d1ffec;
 }
 
-@media (max-width: 768px) {
-  .skills-section { padding: 40px 10px; }
-  .skills-title { font-size: 2rem; margin-bottom: 25px; }
-  .skill-items { gap: 15px; }
-  .skill-icon { font-size: 1.3rem; }
-  .skill-item p { font-size: 0.8rem; }
+/* Tape Effect */
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@media (max-width: 480px) {
-  .skills-section { padding: 30px 5px; }
-  .skills-title { font-size: 2rem; }
-  .skill-icon { font-size: 1.2rem; }
-  .skill-item p { font-size: 0.75rem; }
+/* Dev Avatar Container - Centered and Scrutinized */
+.dev-avatar-container {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+  width: 670px; /* Slightly reduced so it doesn't cover too many notes */
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
 }
 
-/* ===== GLOBAL FIXES ===== */
-html, body {
-  margin: 0;
-  padding: 0;
+.dev-avatar-image {
   width: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
+  height: auto;
+  display: block;
+  /* Multi-layered drop shadow for realistic depth */
+  filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1)) drop-shadow(0 20px 20px rgba(0, 0, 0, 0.1)) drop-shadow(0 40px 40px rgba(0, 0, 0, 0.15));
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .dev-avatar-container {
+    width: 400px;
+  }
+
+  .wall-background {
+    height: 650px;
+  }
+}
+
+@media (max-width: 900px) {
+  .wall-background {
+    height: 750px;
+  }
+
+  .dev-avatar-container {
+    width: 380px;
+    bottom: -20px;
+  }
+
+  .sticky-note {
+    width: 100px;
+    height: 100px;
+  }
+
+  .note-icon {
+    font-size: 1.6rem;
+  }
+
+  .note-name {
+    font-size: 0.65rem;
+  }
+
+  .wall-title {
+    font-size: 3rem;
+    top: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title.wall-title {
+    font-size: 1.8rem;
+    top: 20px;
+    width: 100%;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  .wall-background {
+    height: 600px;
+  }
+
+  .dev-avatar-container {
+    width: 400px;
+    bottom: -8px;
+    z-index: 10;
+  }
+
+  .sticky-note {
+    width: 75px;
+    height: 75px;
+    padding: 5px;
+  }
+
+  /* Widely scattered layout for mobile to prevent clustering around avatar */
+  .sticky-note:nth-child(1) { left: 19% !important; top: 10% !important; }
+  .sticky-note:nth-child(2) { left: 65% !important; top: 8% !important; }
+  .sticky-note:nth-child(3) { left: 10% !important; top: 38% !important; }
+  .sticky-note:nth-child(4) { left: 75% !important; top: 32% !important; }
+  .sticky-note:nth-child(5) { left: 8% !important; top: 68% !important; }
+  .sticky-note:nth-child(6) { left: 55% !important; top: 24% !important; }
+  .sticky-note:nth-child(7) { left: 78% !important; top: 78% !important; }
+  .sticky-note:nth-child(8) { left: 12% !important; top: 85% !important; }
+  .sticky-note:nth-child(9) { left: 15% !important; top: 52% !important; }
+  .sticky-note:nth-child(10) { left: 70% !important; top: 50% !important; }
+  .sticky-note:nth-child(11) { left: 10% !important; top: 22% !important; }
+  .sticky-note:nth-child(12) { left: 75% !important; top: 63% !important; }
+
+  .note-icon {
+    font-size: 1.1rem;
+  }
+
+  .note-name {
+    font-size: 0.5rem;
+  }
 }

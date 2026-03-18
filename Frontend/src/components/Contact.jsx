@@ -14,10 +14,10 @@ const Contact = () => {
               <i className="fas fa-envelope"></i>
               <span>mridul1422@gmail.com</span>
             </a>
-            <a href="tel:7356159878" className="contact-item" title="Phone">
+            {/* <a href="tel:7356159878" className="contact-item" title="Phone">
               <i className="fas fa-phone"></i>
               <span>+91 7356159878</span>
-            </a>
+            </a> */}
             <a href="https://github.com/Mridul2214/" target="_blank" rel="noopener noreferrer" className="contact-item" title="GitHub">
               <i className="fab fa-github"></i>
               <span>GitHub</span>
